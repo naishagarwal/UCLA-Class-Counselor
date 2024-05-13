@@ -1,0 +1,143 @@
+Department Name,Abbreviation,Subject Area Name,Abbreviation.1,Div,School,are_classes
+Aerospace Studies,AERO+ST,Aerospace Studies,AERO+ST,SS,LS,1
+African American Studies,AF+AMER,African American Studies,AF+AMER,SS,LS,1
+African Studies,AFRC+ST,African Studies,AFRC+ST,IS,LS,1
+American Indian Studies,AM+IND,American Indian Studies,AM+IND,SS,LS,1
+Anthropology,ANTHRO,Anthropology,ANTHRO,SS,LS,1
+Applied Linguistics,APPLING,African Languages (pre-15F),AF+LANG,HU,LS,1
+Applied Linguistics,APPLING,Applied Linguistics,APPLING,HU,LS,1
+Archaeology,ARCHEOL,Archaeology,ARCHEOL,SS,LS,1
+Art,ART,Art,ART,AA,AA,1
+Art History,ART+HIS,Art History,ART+HIS,HU,LS,1
+Arts and Architecture,ART&ARC,Arts and Architecture,ART&ARC,AA,AA,1
+Asian American Studies,ASIA+AM,Asian American Studies,ASIA+AM,SS,LS,1
+Bioengineering,BIOENGR,Bioengineering,BIOENGR,EN,EN,1
+Bioinformatics,BIOINFO,Bioinformatics,BIOINFO,LF,LS,1
+Biological Chemistry,BIOL+CH,Biological Chemistry,BIOL+CH,MN,MN,1
+Biomathematics (pre-19F),BIOMATH,Biomathematics,BIOMATH,MN,MN,1
+Biomedical Research,BMD+RES,Biomedical Research,BMD+RES,LF,LS,1
+Biostatistics,BIOSTAT,Biostatistics,BIOSTAT,PH,PH,1
+Chemistry and Biochemistry,CHEM,Applied Chemical Sciences,APP+CHEM,PS,LS,1
+Chemistry and Biochemistry,CHEM,Chemistry and Biochemistry,CHEM,PS,LS,1
+Chicana/o and Central American Studies,CCAS,Chicana/o and Central American Studies,CCAS,SS,LS,1
+Classics,CLASSIC,Classics,CLASSIC,HU,LS,1
+Classics,CLASSIC,Greek,GREEK,HU,LS,1
+Classics,CLASSIC,Latin,LATIN,HU,LS,1
+Communication,COMM,Communication,COMM,SS,LS,1
+Community Engagement and Social Change,CESC,Community Engagement and Social Change,CESC,GS,LS,1
+Community Health Sciences,COM+HLT,Community Health Sciences,COM+HLT,PH,PH,1
+Comparative Literature,COM+LIT,Comparative Literature,COM+LIT,HU,LS,1
+Computer Science,COM+SCI,Bioinformatics (undergraduate),BIOINFR,EN,EN,1
+Computer Science,COM+SCI,Computer Science,COM+SCI,EN,EN,1
+Conservation of Cultural Heritage,CLT+HTG,Conservation of Cultural Heritage,CLT+HTG,SS,LS,1
+Design | Media Arts,DESMA,Design | Media Arts,DESMA,AA,AA,1
+Digital Humanities,DGT+HUM,Digital Humanities,DGT+HUM,HU,LS,1
+Disability Studies,DIS+STD,Disability Studies,DIS+STD,GS,LS,1
+"Earth, Planetary, and Space Sciences",EPS+SCI,"Earth, Planetary, and Space Sciences",EPS+SCI,PS,LS,1
+Ecology and Evolutionary Biology,EE+BIOL,Ecology and Evolutionary Biology,EE+BIOL,LF,LS,1
+Economics,ECON,Economics,ECON,SS,LS,1
+Education,EDUC,Education,EDUC,EI,EI,1
+Electrical and Computer Engineering,EC+ENGR,Electrical and Computer Engineering,EC+ENGR,EN,EN,1
+Engineering and Applied Science,ENGR,Engineering,ENGR,EN,EN,1
+English,ENGL,English,ENGL,HU,LS,1
+Environment and Sustainability,ENVIRON,Environment,ENVIRON,GS,LS,1
+Environmental Health Sciences,ENV+HLT,Environmental Health Sciences,ENV+HLT,PH,PH,1
+Epidemiology,EPIDEM,Epidemiology,EPIDEM,PH,PH,1
+Ethnomusicology,ETHNMUS,Ethnomusicology,ETHNMUS,MU,MU,1
+European Languages and Transcultural Studies,ELTS,Dutch,DUTCH,HU,LS,1
+European Languages and Transcultural Studies,ELTS,European Languages and Transcultural Studies,ELTS,HU,LS,1
+European Languages and Transcultural Studies,ELTS,French,FRNCH,HU,LS,1
+European Languages and Transcultural Studies,ELTS,German,GERMAN,HU,LS,1
+European Languages and Transcultural Studies,ELTS,Italian,ITALIAN,HU,LS,1
+European Languages and Transcultural Studies,ELTS,Scandinavian,SCAND,HU,LS,1
+European Languages and Transcultural Studies,ELTS,Yiddish,YIDDSH,HU,LS,1
+Fiat Lux,FIAT+LX,Fiat Lux,FIAT+LX,GS,LS,1
+Food Studies,FOOD+ST,Food Studies,FOOD+ST,GS,LS,1
+Geography,GEOG,Geography,GEOG,SS,LS,1
+Gerontology,GRNTLGY,Gerontology,GRNTLGY,PA,PA,1
+Global Health,GLB+HLT,Global Health,GLB+HLT,IS,LS,1
+Global Jazz Studies,GJ+STDS,Global Jazz Studies,GJ+STDS,MU,MU,1
+Global Studies,GLBL+ST,Global Studies,GLBL+ST,IS,LS,1
+Health Policy and Management,HLT+POL,Health Policy and Management,HLT+POL,PH,PH,1
+Health Policy and Management,HLT+POL,Healthcare Administration,HLT+ADM,PH,PH,1
+History,HIST,History,HIST,SS,LS,1
+Honors Collegium,HNRS,Honors Collegium,HNRS,GS,LS,1
+Human Genetics,HUM+GEN,Human Genetics,HUM+GEN,MN,MN,1
+Indo-European Studies,I+E+STD,Indo-European Studies,I+E+STD,HU,LS,1
+Information Studies,INF+STD,Information Studies,INF+STD,EI,EI,1
+International and Area Studies,I+A+STD,International and Area Studies,I+A+STD,IS,LS,1
+International Development Studies,INTL+DV,International Development Studies,INTL+DV,IS,LS,1
+International Migration Studies,I+M+STD,International Migration Studies,I+M+STD,IS,LS,1
+Labor Studies,LBR+STD,Labor Studies,LBR+STD,SS,LS,1
+Latin American Studies,LATN+AM,Latin American Studies,LATN+AM,IS,LS,1
+Law,LAW,Law (graduate),LAW,LW,LW,1
+Law,LAW,Undergraduate Law,UG-LAW,LW,LW,1
+"Lesbian, Gay, Bisexual, Transgender, and Queer Studies",LGBTQS,"Lesbian, Gay, Bisexual, Transgender, and Queer Studies",LGBTQS,HU,LS,1
+Life Sciences,LIFESCI,Life Sciences,LIFESCI,LF,LS,1
+Linguistics,LING,American Sign Language,ASL,HU,LS,1
+Linguistics,LING,Linguistics,LING,HU,LS,1
+Linguistics,LING,Swahili,SWAHILI,HU,LS,1
+Management,MGMT,International Exchange Program,IEP,MG,MG,1
+Management,MGMT,Management,MGMT,MG,MG,1
+Management,MGMT,Management-Executive MBA,MGMTEX,MG,MG,1
+Management,MGMT,Management-Full-Time MBA,MGMTFT,MG,MG,1
+Management,MGMT,Management-Fully Employed MBA,MGMTFE,MG,MG,1
+Management,MGMT,Management-Global Executive MBA Asia Pacific,MGMTGEX,MG,MG,1
+Management,MGMT,Management-Master of Financial Engineering,MGMTMFE,MG,MG,1
+Management,MGMT,Management-Master of Science in Business Analytics,MGMTMSA,MG,MG,1
+Management,MGMT,Management-PhD,MGMTPHD,MG,MG,1
+Materials Science and Engineering,MAT+SCI,Materials Science and Engineering,MAT+SCI,EN,EN,1
+Mathematics,MATH,Mathematics,MATH,PS,LS,1
+Mathematics,MATH,Program in Computing,COMPTNG,PS,LS,1
+Medicine,MED,Medicine,MED,MN,MN,1
+"Microbiology, Immunology, and Molecular Genetics",MIMG,"Microbiology, Immunology, and Molecular Genetics",MIMG,LF,LS,1
+Military Science,MIL+SCI,Military Science,MIL+SCI,SS,LS,1
+Molecular and Medical Pharmacology,M+PHARM,Molecular and Medical Pharmacology,M+PHARM,MN,MN,1
+Molecular Biology,MOL+BIO,Molecular Biology,MOL+BIO,LF,LS,1
+Molecular Toxicology,MOL+TOX,Molecular Toxicology,MOL+TOX,PH,PH,1
+"Molecular, Cell, and Developmental Biology",MCD+BIO,"Molecular, Cell, and Developmental Biology",MCD+BIO,LF,LS,1
+Music,MUSC,Music,MUSC,MU,MU,1
+Music Industry,MSC+IND,Music Industry,MSC+IND,MU,MU,1
+Musicology,MUSCLG,Music History,MSC+HST,MU,MU,1
+Musicology,MUSCLG,Musicology,MUSCLG,MU,MU,1
+Naval Science,NAV+SCI,Naval Science,NAV+SCI,SS,LS,1
+Near Eastern Languages and Cultures,NR+EAST,Ancient Near East,AN+N+EA,HU,LS,1
+Near Eastern Languages and Cultures,NR+EAST,Arabic,ARABIC,HU,LS,1
+Near Eastern Languages and Cultures,NR+EAST,Armenian,ARMENIA,HU,LS,1
+Near Eastern Languages and Cultures,NR+EAST,Hebrew,HEBREW,HU,LS,1
+Near Eastern Languages and Cultures,NR+EAST,Iranian,IRANIAN,HU,LS,1
+Near Eastern Languages and Cultures,NR+EAST,Islamic Studies,ISLM+ST,HU,LS,1
+Near Eastern Languages and Cultures,NR+EAST,Jewish Studies,JEWISH,HU,LS,1
+Near Eastern Languages and Cultures,NR+EAST,Middle Eastern Studies,M+E+STD,HU,LS,1
+Near Eastern Languages and Cultures,NR+EAST,Near Eastern Languages,NR+EAST,HU,LS,1
+Near Eastern Languages and Cultures,NR+EAST,Semitic,SEMITIC,HU,LS,1
+Near Eastern Languages and Cultures,NR+EAST,Turkic Languages,TURKIC,HU,LS,1
+Neurobiology,NEURBIO,Medical History,MED+HIS,MN,MN,1
+Neurobiology,NEURBIO,Neurobiology,NEURBIO,MN,MN,1
+Neuroscience,NEUROSC,Neuroscience (undergraduate),NEUROSC,LF,LS,1
+Neuroscience (Graduate),NEURO,Neuroscience (Graduate),NEURO,MN,MN,1
+Nursing,NURSING,Nursing,NURSING,NS,NS,1
+Pathology and Laboratory Medicine,PATH,Pathology and Laboratory Medicine,PATH,MN,MN,1
+Philosophy,PHILOS,Philosophy,PHILOS,HU,LS,1
+Physics and Biology in Medicine,PBMED,Physics and Biology in Medicine,PBMED,MN,MN,1
+Physiology,PHYSIOL,Physiology,PHYSIOL,MN,MN,1
+Political Science,POL+SCI,Political Science,POL+SCI,SS,LS,1
+Psychiatry and Biobehavioral Sciences,PSYCTRY,Psychiatry and Biobehavioral Sciences,PSYCTRY,MN,MN,1
+Psychology,PSYCH,Psychology,PSYCH,LF,LS,1
+Public Affairs,PUB+AFF,Public Affairs,PUB+AFF,PA,PA,1
+Public Health,PUB+HLT,Public Health,PUB+HLT,PH,PH,1
+"Religion, Study of",RELIGN,"Religion, Study of",RELIGN,HU,LS,1
+Research Practice,RES+PRC,Research Practice,RES+PRC,GS,LS,1
+Science Education,SCI+EDU,Science Education,SCI+EDU,PS,LS,1
+Social Science,SOC+SC,Social Science,SOC+SC,SS,LS,1
+Social Thought,SOC+THT,Social Thought,SOC+THT,SS,LS,1
+Social Welfare,SOC+WLF,Social Welfare,SOC+WLF,PA,PA,1
+Society and Genetics,SOC+GEN,Society and Genetics,SOC+GEN,LF,LS,1
+Sociology,SOCIOL,Sociology,SOCIOL,SS,LS,1
+Spanish and Portuguese,SPAN,Indigenous Languages of the Americas,IL+AMER,HU,LS,1
+Spanish and Portuguese,SPAN,Portuguese,PORTGSE,HU,LS,1
+Spanish and Portuguese,SPAN,Spanish,SPAN,HU,LS,1
+Statistics (pre-23S),STATS,Statistics,STATS,PS,LS,1
+Theater,THEATER,Theater,THEATER,TF,TF,1
+University Studies,UNIV+ST,University Studies,UNIV+ST,GS,LS,1
+Urban Planning,URBN+PL,Urban Planning,URBN+PL,PA,PA,1
