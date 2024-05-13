@@ -36,5 +36,13 @@ def scrape_department_codes():
 
     return abbreviation_df
 
+# call function to scrape department codes
 abbreviation_df = scrape_department_codes()
+
+# convert department codes to format for URL input
+#abbreviation_df['Abbreviation'].replace(' ', '+')
+abbreviation_df['Abbreviation'] = abbreviation_df['Abbreviation'].replace(' ', '+', regex=True)
+
+# write df to csv
+abbreviation_df.to_csv('department_codes.csv', index=False)
 print(abbreviation_df.head(5))
