@@ -72,6 +72,7 @@ else:
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 model = BertModel.from_pretrained('bert-base-uncased')
 
+'''
 # data to be indexed
 with open('cleaned_ucla_class_info.json', 'r') as fp:
     data = json.load(fp)
@@ -85,7 +86,20 @@ def generate_embeddings(text):
     return outputs.last_hidden_state.mean(dim=1).squeeze().numpy()
 
 embeddings = [generate_embeddings(str(doc)) for doc in documents]
+'''
 
+# data to be indexed
+with open('embedding_input_class_data.txt') as file:
+    documents = [line.rstrip() for line in file]
+
+# generate embeddings
+def generate_embeddings(text):
+    inputs = tokenizer(text, return_tensors='pt', padding=True, truncation=True, max_length=512)
+    with torch.no_grad():
+        outputs = model(**inputs)
+    return outputs.last_hidden_state.mean(dim=1).squeeze().numpy()
+
+embeddings = [generate_embeddings(doc) for doc in documents]
 
 # function to yield documents in batches
 def generate_actions(embeddings, index_name, batch_size=1000):
