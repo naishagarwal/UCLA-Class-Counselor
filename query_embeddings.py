@@ -42,11 +42,11 @@ def generate_query_vector(query_text):
     return generate_embeddings(query_text)
 
 ### update query vector to whatever search you want to embded
-query_vector = generate_query_vector("'class_name': 'Computer Science'")
+query_vector = generate_query_vector("How many offerings are out there for Nursing 470B - DNP Scholarly Project Course II: Project Proposal ?")
 
 # perform knn search
 knn_query = {
-    "size": 10, # how many top k results you want returned back 
+    "size": 25, # how many top k results you want returned back 
     "query": {
         "knn": {
             "field": "embedding",
