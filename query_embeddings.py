@@ -6,7 +6,7 @@ import torch
 # elasticsearch connection details
 es_host = "https://localhost:9200"
 es_username = "elastic"
-es_password = "UpdW9cLFT1Q9Ff_qtcuW"
+es_password = "<ELASTIC_PASSWORD>"
 ca_cert_path = "/usr/local/share/ca-certificates/ca_bundle.crt"
 
 # initialize the elasticsearch client w/o authentication
