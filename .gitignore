@@ -1,0 +1,8 @@
+.vscode/
+__pycache__/
+/env
+/venv
+/cs263_venv
+.DS_Store
+.vscode/
+__pycache__/
