@@ -1,3 +1,4 @@
+import os
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
@@ -113,7 +114,8 @@ years = [24]
 semesters = ['F']
 
 # read in majors to scrape and drop dupulicates
-majors = pd.read_csv('majors_to_scrape.csv')
+base_dir = os.path.dirname(os.path.realpath('majors_to_scrape.csv'))
+majors = pd.read_csv(base_dir + '/majors_to_scrape.csv')
 majors = majors['Abbreviation'].drop_duplicates().tolist()
 
 # get info for each major for each year for each semester
@@ -131,7 +133,7 @@ for major in majors:
             shadow_root = get_class_content(major, driver, year, semester)[1]
             try:
                 print(df.head())
-                df.to_csv('ucla_class_info_{}_{}.csv'.format(semester, year), mode='a', header=False, index=False)
+                df.to_csv(base_dir + '/followup_project/data/fall_2024/ucla_class_info_{}_{}.csv'.format(semester, year), mode='a', header=False, index=False)
             except:
                 print('df was empty')
 
@@ -143,7 +145,7 @@ for major in majors:
                     shadow_root = get_class_content(major, driver, year, semester)[1]
                     try:
                         print(df.head())
-                        df.to_csv('ucla_class_info_{}_{}.csv'.format(semester, year), mode='a', header=False, index=False)
+                        df.to_csv(base_dir + '/followup_project/data/fall_2024/ucla_class_info_{}_{}.csv'.format(semester, year), mode='a', header=False, index=False)
                     except:
                         print('df was empty')
                 else:

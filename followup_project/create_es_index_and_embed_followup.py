@@ -92,7 +92,8 @@ embeddings = [generate_embeddings(str(doc)) for doc in documents]
 '''
 
 # data to be indexed
-with open('embedding_input_followup.txt') as file:
+base_dir = os.path.dirname(os.path.realpath('embedding_input_followup.txt'))
+with open(base_dir + '/followup_project/data/fall_2024/embedding_input_followup.txt') as file:
     documents = [line.rstrip() for line in file]
 
 # generate embeddings

@@ -45,7 +45,7 @@ def generate_query_vector(query_text):
     return generate_embeddings(query_text)
 
 ### update query vector to whatever search you want to embded
-query_vector = generate_query_vector("What time and date is Public Affairs M117DX Data Analysis for Educational Equity and Improvement?")
+query_vector = generate_query_vector('What time and date is Earth, Planetary, and Space Sciences 154 - Solar Terrestrial Physics?')
 
 # perform knn search
 knn_query = {

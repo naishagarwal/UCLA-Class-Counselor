@@ -1,11 +1,13 @@
+import os
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 import json
 import numpy as np
 
-# create df and lists of all scraped data 
-df = pd.read_csv('cleaned_ucla_class_info_F_24.csv')
+# create df and lists of all scraped data
+base_dir = os.path.dirname(os.path.realpath('cleaned_ucla_class_info_F_24.csv'))
+df = pd.read_csv(base_dir + '/followup_project/data/fall_2024/cleaned_ucla_class_info_F_24.csv.txt')
 profs = df['class_professor'].to_list()
 classes = df['class_name'].to_list()
 
@@ -46,13 +48,13 @@ def create_final_df(full_prof_names, clean_classes):
         'class_name': clean_classes,
         })
     
-    final_df.to_csv('prof_and_class_F_24.csv', index=False)
+    final_df.to_csv(base_dir + '/followup_project/data/fall_2024/prof_and_class_F_24.csv', index=False)
     
     return final_df
 
 def get_rating():
     # make request for each prof+class combo and return rating
-    df = pd.read_csv('prof_and_class_F_24.csv')
+    df = pd.read_csv(base_dir + '/followup_project/data/fall_2024/prof_and_class_F_24.csv')
     profs = df['full_prof_name'].to_list()
     classes = df['class_name'].to_list()
     ratings = []
@@ -87,10 +89,10 @@ def get_rating():
     return ratings, urls
 
 def combine_df(ratings, urls):
-    df = pd.read_csv('cleaned_ucla_class_info_F_24.csv')
+    df = pd.read_csv(base_dir + '/followup_project/data/fall_2024/cleaned_ucla_class_info_F_24.csv')
     df['prof_rating'] = ratings
     df['bruin_walk_url'] = urls
-    df.to_csv('prof_ratings_and_class_data_F_24.csv', index=False)
+    df.to_csv(base_dir + '/followup_project/data/fall_2024/prof_ratings_and_class_data_F_24.csv', index=False)
 
     # create dict for each record
     d = df.to_dict('records')
