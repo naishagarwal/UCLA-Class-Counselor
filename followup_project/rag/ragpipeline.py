@@ -38,7 +38,7 @@ es_retriever = ElasticsearchRetriever(
     es_host = config['es_host'],
     es_username = config['es_username'],
     es_password = config['es_password'],
-    index_name = 'f_24_embedding',
+    indices = ['f_24_embedding', 'professor_info_embedding'],
     ca_cert_path = config['ca_cert_path']
 )
 
@@ -93,7 +93,7 @@ def generate_response(query: str) -> str:
     return parsed_response
 
 if __name__ == "__main__":
-    query = "What day and time is Computer Science 263 - Natural Language Processing taught?"
+    query = "What professor teaches Spanish (SPAN) 1 - Elementary Spanish Lec 6?"
     response = generate_response(query)
     print(response)
 
