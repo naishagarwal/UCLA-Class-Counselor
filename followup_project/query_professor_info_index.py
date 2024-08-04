@@ -9,7 +9,7 @@ os.environ['CURL_CA_BUNDLE'] = ''
 # elasticsearch connection details
 es_host = "https://localhost:9200"
 es_username = "elastic"
-es_password = 'nOuHN*_QRs5HzneXXX0S'
+es_password = '<ELASTIC PASSWORD>'
 ca_cert_path = "/usr/local/share/ca-certificates/ca_bundle.crt"
 
 # initialize the elasticsearch client w/o authentication
