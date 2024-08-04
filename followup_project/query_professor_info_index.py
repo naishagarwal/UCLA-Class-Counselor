@@ -9,7 +9,7 @@ os.environ['CURL_CA_BUNDLE'] = ''
 # elasticsearch connection details
 es_host = "https://localhost:9200"
 es_username = "elastic"
-es_password = '<ELASTIC PASSWORD>'
+es_password = 'nOuHN*_QRs5HzneXXX0S'
 ca_cert_path = "/usr/local/share/ca-certificates/ca_bundle.crt"
 
 # initialize the elasticsearch client w/o authentication
@@ -45,24 +45,60 @@ def generate_query_vector(query_text):
     return generate_embeddings(query_text)
 
 ### update query vector to whatever search you want to embded
-query_vector = generate_query_vector('What classes does Professor Deutsch, H.E teach?')
+query_text = "What class does professor Professor  Bradford-Gomez, K. teach?"
+query_vector = generate_query_vector(query_text)
 
 # perform knn search
-knn_query = {
-    "size": 10, # how many top k results you want returned back 
-    "query": {
-        "knn": {
-            "field": "embedding",
-            "query_vector": query_vector
+def query_with_embedding(query_vector):
+    knn_query = {
+        "size": 1, # how many top k results you want returned back 
+        "query": {
+            "knn": {
+                "field": "embedding",
+                "query_vector": query_vector
+                }
             }
         }
+
+    # search es using knn_query
+    response = es.search(index=index_name, body=knn_query)
+
+    # print results
+    print(f"Total documents retrieved: {len(response['hits']['hits'])}")
+    print("Search results:")
+    for hit in response['hits']['hits']:
+        print(hit["_source"]["text"])
+    
+    return response
+
+def query_with_text(query_text):
+    knn_query = {
+        "size": 1, # how many top k results you want returned back 
+        "query": {
+            "match": {
+                "text": query_text
+                }
+            }
+        }
+
+    # search es using knn_query
+    response = es.search(index=index_name, body=knn_query)
+
+    # print results
+    print(f"Total documents retrieved: {len(response['hits']['hits'])}")
+    print("Search results:")
+    for hit in response['hits']['hits']:
+        print(hit["_source"]["text"])
+    
+    return response
+
+def handle_user_query(query_vector, query_text):
+    embedding_info = query_with_embedding(query_vector)
+    text_info = query_with_text(query_text)
+    combined_info = {
+        "embedding_info": embedding_info,
+        "text_info": text_info
     }
+    return combined_info
 
-# search es using knn_query
-response = es.search(index=index_name, body=knn_query)
-
-# print results
-print(f"Total documents retrieved: {len(response['hits']['hits'])}")
-print("Search results:")
-for hit in response['hits']['hits']:
-    print(hit["_source"]["text"])
+handle_user_query(query_vector, query_text)

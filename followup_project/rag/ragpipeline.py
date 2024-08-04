@@ -93,7 +93,7 @@ def generate_response(query: str) -> str:
     return parsed_response
 
 if __name__ == "__main__":
-    query = "What professor teaches Spanish (SPAN) 1 - Elementary Spanish Lec 6?"
+    query = "What is Professor  Stevenson, B BruinWalk URL? "
     response = generate_response(query)
     print(response)
 
