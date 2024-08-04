@@ -1,0 +1,10 @@
+OPENAI_API_KEY: <OPEN_API_KEY>
+LANGCHAIN_API_KEY: <LANGCHAIN_API_KEY>
+es_host:  <ELASTIC HOST>
+es_username:  <ES_USERNAME>
+es_password:  <ES_PASSWORD>
+ca_cert_path:  <CA_CERT_PATH>
+
+#ca_cert_path:  "/usr/local/share/ca-certificates/ca_bundle.crt"
+#es_username:  "elastic"
+#es_host:  "https://localhost:9200"
