@@ -23,7 +23,7 @@ class ElasticsearchRetriever:
             outputs = model(**inputs)
         return outputs.last_hidden_state.mean(dim=1).squeeze().numpy()
 
-    def query_with_embedding(self, query_vector, top_k):
+    def query_with_embedding(self, index_name, query_vector, top_k):
         knn_query = {
             "size": top_k, # how many top k results you want returned back 
             "query": {
@@ -35,14 +35,14 @@ class ElasticsearchRetriever:
             }
 
         # search es using knn_query
-        response = self.client.search(index=self.indices, body=knn_query)
+        response = self.client.search(index=index_name, body=knn_query)
 
         hits = response['hits']['hits']
         for hit in hits:
             documents = [Document(page_content = hit["_source"]["text"], metadata = {"score": hit['_score']})]
         return documents
 
-    def query_with_text(self, query_text, top_k):
+    def query_with_text(self, index_name, query_text, top_k):
         knn_query = {
             "size": top_k, # how many top k results you want returned back 
             "query": {
@@ -53,7 +53,7 @@ class ElasticsearchRetriever:
             }
 
         # search es using knn_query
-        response = self.client.search(index=self.indices, body=knn_query)
+        response = self.client.search(index=index_name, body=knn_query)
 
         hits = response['hits']['hits']
         for hit in hits:
@@ -61,10 +61,14 @@ class ElasticsearchRetriever:
         return documents
 
     def get_relevant_documents(self, query: str, top_k: int = 1) -> List[Document]:
+
+        combined_documents = []
         query_vector = self.generate_embeddings(query)
-        documents_embeddings = self.query_with_embedding(query_vector, top_k)
-        documents_text = self.query_with_text(query, top_k)
-        combined_documents = documents_embeddings + documents_text
+        for index in self.indices:
+            documents_embeddings = self.query_with_embedding(index, query_vector, top_k)
+            documents_text = self.query_with_text(index, query, top_k)
+            combined_documents.extend(documents_embeddings)
+            combined_documents.extend(documents_text)
         return combined_documents
 
         # knn_query = {
