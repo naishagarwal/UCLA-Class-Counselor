@@ -38,13 +38,13 @@ class ElasticsearchRetriever:
         response = self.client.search(index=index_name, body=knn_query)
 
         hits = response['hits']['hits']
+        documents = []
         for hit in hits:
-            documents = [Document(page_content = hit["_source"]["text"], metadata = {"score": hit['_score']})]
+            documents.append(Document(page_content=hit["_source"]["text"], metadata={"score": hit['_score']}))
         return documents
 
-    def query_with_text(self, index_name, query_text, top_k):
+    def query_with_text(self, index_name, query_text):
         knn_query = {
-            "size": top_k, # how many top k results you want returned back 
             "query": {
                 "match": {
                     "text": query_text
@@ -56,8 +56,9 @@ class ElasticsearchRetriever:
         response = self.client.search(index=index_name, body=knn_query)
 
         hits = response['hits']['hits']
+        documents = []
         for hit in hits:
-            documents = [Document(page_content = hit["_source"]["text"], metadata = {"score": hit['_score']})]
+            documents.append(Document(page_content=hit["_source"]["text"], metadata={"score": hit['_score']}))
         return documents
 
     def get_relevant_documents(self, query: str, top_k: int = 1) -> List[Document]:
@@ -66,28 +67,10 @@ class ElasticsearchRetriever:
         query_vector = self.generate_embeddings(query)
         for index in self.indices:
             documents_embeddings = self.query_with_embedding(index, query_vector, top_k)
-            documents_text = self.query_with_text(index, query, top_k)
+            documents_text = self.query_with_text(index, query)
             combined_documents.extend(documents_embeddings)
             combined_documents.extend(documents_text)
         return combined_documents
-
-        # knn_query = {
-        #     "size": top_k, # how many top k results you want returned back 
-        #     "query": {
-        #     "knn": {
-        #         "field": "embedding",
-        #         "query_vector": query_vector
-        #         }
-        #     }
-        # }
-
-        # response = self.client.search(index=self.indices, body=knn_query)
-        # hits = response['hits']['hits']
-        # for hit in hits:
-        #     documents = [Document(page_content = hit["_source"]["text"], metadata = {"score": hit['_score']})]
-        # return documents
-    
-     #perform knn search
     
     
     def __call__(self, inputs: dict) -> dict:
