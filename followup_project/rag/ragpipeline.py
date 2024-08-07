@@ -1,12 +1,3 @@
-'''
-    Steps:
-        1. Connect the elastic search database using Langchain
-        2. Construct the RAG pipeline to generate results
-
-        Make sure to test steps periodically
-
-'''
-
 import getpass
 import os
 import yaml
@@ -16,8 +7,7 @@ from elasticsearchclass import ElasticsearchRetriever
 from langchain.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
-
-
+import gradio as gr
 
 #importing environment variables
 with open("rag/config.yaml", 'r') as file:
@@ -31,6 +21,7 @@ from langchain_openai import ChatOpenAI
 
 #llm (using gpt-4o-mini for now, can change to any other model as well)
 llm = ChatOpenAI(model="gpt-4o-mini")
+#instead of a standard LLM, can replace this with a fine-tuned one
 #print(llm.invoke('Hello')) testing to see if llm works
 
 #initializing elastic search retriever
@@ -87,14 +78,36 @@ def generate_response(query: str) -> str:
     #get LLM response
     llm_response = llm(prompt)
 
+    #content
+    #parsed_response = llm_response['choices'][0]['message']['content']
+
     #parse response
-    parsed_response = StrOutputParser().parse(llm_response)
+    #parsed_response = StrOutputParser().parse(llm_response)
+
+    parsed_response = llm_response.content
 
     return parsed_response
 
 if __name__ == "__main__":
-    query = "What is Professor  Stevenson, B BruinWalk URL? "
-    response = generate_response(query)
-    print(response)
+    # query = "Hi! I am a computer science major just entering UCLA. Can you recommend me some computer science classes I can take?"
+    # response = generate_response(query)
+    # print(response)
+
+    # gr.ChatInterface(generate_response,
+    # chatbot=gr.Chatbot(height=300),
+    # textbox=gr.Textbox(placeholder="You can ask me anything", container=False, scale=7),
+    # title="UCLA Class Counselor",
+    # retry_btn=None,
+    # undo_btn="Delete Previous",
+    # clear_btn="Clear").launch()
+
+    gr.Interface(
+        fn=generate_response,
+        inputs=gr.Textbox(placeholder="You can ask me anything", lines=2),
+        outputs=gr.Textbox(),
+        title="UCLA Class Counselor"
+    ).launch()
+
+    #gr.ChatInterface(generate_response).launch()
 
 
