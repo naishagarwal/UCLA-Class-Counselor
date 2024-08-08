@@ -82,13 +82,7 @@ def generate_response(query: str, history: list) -> str:
     return history, history
 
 if __name__ == "__main__":
-    gr.Interface(
-        fn=generate_response,
-        inputs=[gr.Textbox(placeholder="You can ask me anything", lines=2), gr.State([])],
-        outputs= [gr.Chatbot(), gr.State([])],
-        title="UCLA Class Counselor"
-    ).launch(share=True)
-# demo = create_ui(generate_response)  # Create the UI with the response function
-# demo.launch()
+    ui = create_ui(generate_response) 
+    ui.launch()
 
 
