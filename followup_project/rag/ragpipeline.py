@@ -50,6 +50,9 @@ def create_history(history):
         conversation_history += f"User: {turn[0]}\nAI: {turn[1]}]\n"
     return conversation_history
 
+def clear_history():
+    return [], []
+
 def generate_response(query: str, history: list) -> str:
 
     #get conversation history
@@ -60,6 +63,7 @@ def generate_response(query: str, history: list) -> str:
 
     #retrieve relevant documents
     retrieval_result = es_retriever({"question": full_context})
+    #history_result = es_retriever({"question:": conv_history})
     context = retrieval_result["context"]
 
     # print("History")
@@ -82,7 +86,7 @@ def generate_response(query: str, history: list) -> str:
     return history, history
 
 if __name__ == "__main__":
-    ui = create_ui(generate_response) 
-    ui.launch()
+    ui = create_ui(generate_response, clear_history) 
+    ui.launch(share = True)
 
 

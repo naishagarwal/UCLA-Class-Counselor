@@ -1,6 +1,6 @@
 import gradio as gr
 
-def create_ui(generate_response):
+def create_ui(generate_response, clear_history):
 
     ui = gr.Blocks()
     with ui:
@@ -19,9 +19,11 @@ def create_ui(generate_response):
                 query = gr.Textbox(placeholder="Hi! I am your personal UCLA Class Counselor. Ask me anything about class offerings at UCLA!", lines=2, elem_id="textbox")
             with gr.Column(scale=2):
                 button = gr.Button("Submit", elem_id="button")
+                clear_button = gr.Button("Clear History", elem_id="clear")
         chatbot = gr.Chatbot()
         state = gr.State([])
         button.click(generate_response, inputs=[query, state], outputs=[chatbot, state])
+        clear_button.click(clear_history, outputs=[chatbot, state])
 
 
 
