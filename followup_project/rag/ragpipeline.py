@@ -8,6 +8,7 @@ from langchain.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 import gradio as gr
+from gradio_ui.gradio_ui import create_ui
 
 #importing environment variables
 with open("rag/config.yaml", 'r') as file:
@@ -43,71 +44,51 @@ def create_prompt(inputs):
     # print(context)
     return prompt_template.format(question=question, context=context)
 
-#set up rag pipeline
-# rag_chain = (
-#      "context": es_retriever 
-#     | "question": RunnablePassthrough()
-#     | create_prompt
-#     | llm
-#     | StrOutputParser()
-# )
-# rag_chain = (
-#     {
-#         "context": es_retriever | prompt_template, #combines elastic search retriever and prompt template
-#         "question": RunnablePassthrough(), #forwarding query
-#         "prompt": prompt_template, #using prompt template to format query
-#         "llm": llm, #calls llm with formatted query
-#         "output_parser": StrOutputParser() #parses llm output into string format
-#     }
-# )
+def create_history(history):
+    conversation_history = ""
+    for turn in history:
+        conversation_history += f"User: {turn[0]}\nAI: {turn[1]}]\n"
+    return conversation_history
 
-# def generate_response(query: str) -> str:
-#     response = rag_chain.invoke({"question": query})
-#     return response
+def generate_response(query: str, history: list) -> str:
 
-def generate_response(query: str) -> str:
+    #get conversation history
+    conv_history = create_history(history)
+
+    #full context including history
+    full_context = f"{conv_history} User: {query}\n"
+
     #retrieve relevant documents
-    retrieval_result = es_retriever({"question": query})
+    retrieval_result = es_retriever({"question": full_context})
     context = retrieval_result["context"]
 
+    # print("History")
+    # print(conv_history)
+
     #create prompt
-    prompt = create_prompt({"question": query, "context": context})
+    prompt = create_prompt({"question": full_context, "context": context})
 
     print(prompt)
 
     #get LLM response
     llm_response = llm(prompt)
 
-    #content
-    #parsed_response = llm_response['choices'][0]['message']['content']
-
-    #parse response
-    #parsed_response = StrOutputParser().parse(llm_response)
-
+    #parse out content portion of LLM response 
     parsed_response = llm_response.content
 
-    return parsed_response
+    #update history
+    history.append([query, parsed_response])
+
+    return history, history
 
 if __name__ == "__main__":
-    # query = "Hi! I am a computer science major just entering UCLA. Can you recommend me some computer science classes I can take?"
-    # response = generate_response(query)
-    # print(response)
-
-    # gr.ChatInterface(generate_response,
-    # chatbot=gr.Chatbot(height=300),
-    # textbox=gr.Textbox(placeholder="You can ask me anything", container=False, scale=7),
-    # title="UCLA Class Counselor",
-    # retry_btn=None,
-    # undo_btn="Delete Previous",
-    # clear_btn="Clear").launch()
-
     gr.Interface(
         fn=generate_response,
-        inputs=gr.Textbox(placeholder="You can ask me anything", lines=2),
-        outputs=gr.Textbox(),
+        inputs=[gr.Textbox(placeholder="You can ask me anything", lines=2), gr.State([])],
+        outputs= [gr.Chatbot(), gr.State([])],
         title="UCLA Class Counselor"
-    ).launch()
-
-    #gr.ChatInterface(generate_response).launch()
+    ).launch(share=True)
+# demo = create_ui(generate_response)  # Create the UI with the response function
+# demo.launch()
 
 
