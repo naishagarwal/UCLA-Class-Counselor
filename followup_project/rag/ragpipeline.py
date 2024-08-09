@@ -11,14 +11,11 @@ import gradio as gr
 from gradio_ui.gradio_ui import create_ui
 
 #importing environment variables
-with open("rag/config.yaml", 'r') as file:
+base_dir = os.path.dirname(os.path.realpath('config.yaml'))
+with open(base_dir + '/followup_project/rag/config.yaml', 'r') as file:
     config = yaml.safe_load(file)
 
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
-os.environ["LANGCHAIN_API_KEY"] = config['LANGCHAIN_API_KEY']
-os.environ["OPENAI_API_KEY"] = config['OPENAI_API_KEY']
-
-from langchain_openai import ChatOpenAI
 
 #llm (using gpt-4o-mini for now, can change to any other model as well)
 llm = ChatOpenAI(model="gpt-4o-mini")
