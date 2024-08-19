@@ -1,11 +1,14 @@
+import os
 import gradio as gr
 
 def create_ui(generate_response, clear_history):
 
+    base_dir = os.path.dirname(os.path.realpath('ucla_logo.jpg'))
+    print(base_dir)
     ui = gr.Blocks()
     with ui:
-        PATH_TO_CSS = "/Users/naishaagarwal/Documents/GitHub/UCLA-Class-Counselor/followup_project/rag/gradio_ui/style.css"
-        PATH_TO_LOGO = "/Users/naishaagarwal/Documents/GitHub/UCLA-Class-Counselor/followup_project/rag/gradio_ui/images/ucla_logo.jpg"
+        PATH_TO_CSS = base_dir + '/followup_project/rag/gradio_ui/style.css'
+        PATH_TO_LOGO = base_dir + '/followup_project/rag/gradio_ui/images/ucla_logo.jpg'
 
         with open(PATH_TO_CSS) as css_file:
             css_content = css_file.read()
