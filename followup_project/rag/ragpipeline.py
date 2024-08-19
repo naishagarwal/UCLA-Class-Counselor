@@ -61,8 +61,16 @@ def generate_response(query: str, history: list) -> str:
     #full context including history
     full_context = f"{conv_history} User: {query}\n"
 
+    #pass full_context into LLM to generate a new query, then pass that query into database to get appropriate results
+    question = "Given the following conversation history and user query, generate a new query that appropriately ties in the conversation history."
+
+    history_prompt = create_prompt({"question": question, "context": full_context})
+    new_query = llm(history_prompt).content
+    print(new_query)
+
     #retrieve relevant documents
-    retrieval_result = es_retriever({"question": full_context})
+    #Change full_context here to be new_query
+    retrieval_result = es_retriever({"question": new_query})
     #history_result = es_retriever({"question:": conv_history})
     context = retrieval_result["context"]
 
